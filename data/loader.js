@@ -1,4 +1,4 @@
-EJS_pathtodata = './data/';
+EJS_pathtodata = 'https://burritoedition.github.io/emu/data/';
 EJS_AdUrl = `https://burritoedition.github.io/emu/ad/ad.html`;
 
 
