@@ -1,5 +1,5 @@
 EJS_pathtodata = 'https://burritoedition.github.io/emu/data/';
-EJS_AdUrl = `https://burritoedition.github.io/emu/ad/ad.html`;
+EJS_AdUrl = `https://burritoedition.com/src/p/ad.html`;
 
 
 var VERSION = '0.4.26'
