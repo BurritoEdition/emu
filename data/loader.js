@@ -1,5 +1,15 @@
-EJS_pathtodata = 'https://burritoedition.github.io/emu/data/';
-EJS_AdUrl = `https://burritoedition.com/src/p/ad.html`;
+function getRandomItem(arr) {
+
+    const randomIndex = Math.floor(Math.random() * arr.length);
+
+    const item = arr[randomIndex];
+
+    return item;
+}
+
+const array = ['https://burritoedition.com/src/p/ad.html', 'https://burritoedition.com/src/p/2ad.html', 'https://burritoedition.com/src/p/3ad.html', 'https://burritoedition.com/src/p/4ad.html'];
+
+EJS_AdUrl = getRandomItem(array);
 
 
 var VERSION = '0.4.26'
