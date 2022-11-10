@@ -1,15 +1,5 @@
-function getRandomItem(arr) {
 
-    const randomIndex = Math.floor(Math.random() * arr.length);
-
-    const item = arr[randomIndex];
-
-    return item;
-}
-
-const array = ['https://burritoedition.com/src/p/ad.html', 'https://burritoedition.com/src/p/2ad.html', 'https://burritoedition.com/src/p/3ad.html', 'https://burritoedition.com/src/p/4ad.html'];
-
-EJS_AdUrl = getRandomItem(array);
+EJS_AdUrl = 'https://burritoedition.com/src/p/ad.html'
 
 
 var VERSION = '0.4.26'
@@ -19,7 +9,7 @@ fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').
 			var version = JSON.parse(body);
 			var usingVersion = VERSION;
 			if (usingVersion != version.current_version) {
-				console.log('Using emulatorjs version ' + usingVersion + ' but the newest version is ' + version.current_version + '\n\nopen https://github.com/ethanaobrien/emulatorjs to update');
+				console.log('█▄▄ █░█ █▀█ █▀█ █ ▀█▀ █▀█   █▀▀ █▀▄ █ ▀█▀ █ █▀█ █▄░█\n█▄█ █▄█ █▀▄ █▀▄ █ ░█░ █▄█   ██▄ █▄▀ █ ░█░ █ █▄█ █░▀█');
 			};
 		});
 	};
