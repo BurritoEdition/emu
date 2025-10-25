@@ -1,0 +1,33 @@
+uid	name	tla	home_helmet	home_logo	home_shirt	home_sleeve	home_pants	home_stripe	home_socks1	home_socks2
+0	Buffalo	BUF	$ffffff	$003087	$003087	$c8102e	$ffffff	$c8102e	$00176e	$00176e
+1	Miami	MIA	$ffffff	$008c95	$008c95	$008c95	$ffffff	$008c95	$007377	$007377
+2	New England	N.E	$a2aaad	$0c2340	$0c2340	$c8102e	$a2aaad	$c8102e	$e6e6e6	$0c2340
+3	New York A	NYA	$115740	$ffffff	$115740	$ffffff	$ffffff	$115740	$e6e6e6	$003e27
+4	Denver	DEN	$0c2340	$ffffff	$fc4c02	$fc4c02	$ffffff	$0c2340	$e6e6e6	$0b203a
+5	Kansas City	K.C	$c8102e	$ffffff	$c8102e	$ffffff	$ffffff	$c8102e	$ffb81c	$b40e29
+6	Los Angeles A	LAA	$ffffff	$ffb81c	$0072ce	$ffb81c	$ffffff	$ffb81c	$0072ce	$0072ce
+7	Las Vegas	L.V	$87909a	$010101	$010101	$a2aaad	$a2aaad	$010101	$e6e6e6	$1a1a1a
+8	Baltimore	BAL	$1d252d	$24125f	$24125f	$010101	$ffffff	$24125f	$e6e6e6	$1a1a1a
+9	Cincinnati	CIN	$e44c0d	$010101	$010101	$dc4405	$ffffff	$dc4405	$1a1a1a	$1a1a1a
+10	Cleveland	CLE	$eb3300	$eb3300	$321c00	$ffffff	$eb3300	$ffffff	$e6e6e6	$d42e00
+11	Pittsburgh	PIT	$1d252d	$ffffff	$010101	$ffb81c	$ffb81c	$010101	$e6e6e6	$1a1a1a
+12	Houston	HOU	$112734	$a6192e	$091f2c	$a6192e	$ffffff	$091f2c	$081c28	$081c28
+13	Indianapolis	IND	$ffffff	$003a70	$003a70	$ffffff	$ffffff	$003a70	$e6e6e6	$003465
+14	Jacksonville	JAC	$1d252d	$8e7831	$006271	$010101	$010101	$010101	$005866	$005866
+15	Tennessee	TEN	$142b48	$418fde	$0c2340	$418fde	$0c2340	$0c2340	$0b203a	$0b203a
+16	Dallas	DAL	$87909a	$0c2340	$ffffff	$003087	$aecbd1	$003087	$e6e6e6	$002b7a
+17	New York N	NYN	$132e85	$ffffff	$001e62	$001e62	$ffffff	$a6192e	$001e62	$001e62
+18	Philadelphia	PHI	$013d41	$ffffff	$004851	$010101	$ffffff	$004851	$e6e6e6	$e6e6e6
+19	Washington	WAS	$651c32	$ffb81c	$651c32	$ffb81c	$ffffff	$ffffff	$7f364c	$7f364c
+20	Arizona	ARI	$ffffff	$9b2743	$9b2743	$9b2743	$9b2743	$9b2743	$820e2a	$820e2a
+21	Los Angeles N	LAN	$001ebb	$ffd100	$1e22aa	$ffd100	$ffd100	$1e22aa	$1b1f99	$1b1f99
+22	San Francisco	S.F	$89734c	$a6192e	$a6192e	$ffffff	$c6aa76	$a6192e	$e6e6e6	$951729
+23	Seattle	SEA	$122340	$7c878e	$0c2340	$78be21	$0c2340	$78be21	$e6e6e6	$0b203a
+24	Chicago	CHI	$16141f	$dc4405	$091f2c	$dc4405	$ffffff	$091f2c	$e6e6e6	$0b203a
+25	Detroit	DET	$87909a	$0069b1	$0069b1	$a2aaad	$a2aaad	$0069b1	$e6e6e6	$005f9f
+26	Green Bay	G.B	$ffb81c	$183029	$183029	$ffb81c	$ffb81c	$183029	$e6e6e6	$162b25
+27	Minnesota	MIN	$553481	$ffffff	$582c83	$ffc72c	$ffffff	$582c83	$e6e6e6	$4f2876
+28	Atlanta	ATL	$1d252d	$a6192e	$010101	$010101	$ffffff	$a6192e	$1a1a1a	$1a1a1a
+29	Carolina	CAR	$8d9093	$101820	$101820	$0085ca	$b2b4b2	$0085ca	$e6e6e6	$1a1a1a
+30	New Orleans	N.O	$a28d5b	$010101	$010101	$d3bc8d	$010101	$010101	$1a1a1a	$1a1a1a
+31	Tampa Bay	T.B	$433d37	$a6192e	$a6192e	$3d3935	$ffffff	$a6192e	$e6e6e6	$1a1a1a

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Retro Bowl College</title>
+    
+    <style>
+        body {
+            background: #000;
+            color: #cccccc;
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            overflow: hidden;
+        }
+        
+        canvas {
+            image-rendering: pixelated;
+            -webkit-interpolation-mode: nearest-neighbor;
+            -ms-touch-action: none;
+            touch-action: none;
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+        
+        div.gm4html5_div_class {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+        
+        /* Banner ad at bottom */
+        #banner-ad-iframe {
+            z-index: 9999999999;
+            width: 100vw;
+            height: 10vh;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border: none;
+            /* background: #000; */
+        }
+        
+        /* Adjust game canvas to account for banner */
+        #canvas {
+            position: absolute;
+            top: calc(50% - 45px); /* Shift up by half banner height */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Interstitial ad overlay (for commercial breaks) */
+        #interstitial-ad-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #interstitial-ad-container.active {
+            display: flex;
+        }
+        
+        #interstitial-ad-iframe {
+            width: 90vw;
+            max-width: 728px;
+            height: 70vh;
+            max-height: 400px;
+            border: none;
+            background: #fff;
+            border-radius: 10px;
+        }
+        
+        #ad-skip-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        #ad-skip-btn.active {
+            display: block;
+        }
+        
+        #ad-timer {
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner ad at bottom (always visible) -->
+    <iframe id="banner-ad-iframe" 
+            src="https://burritoedition.com/src/p/adlong/1along.html" 
+            frameborder="0"
+            scrolling="no"></iframe>
+    
+    <!-- Interstitial ad overlay (shows during commercial breaks) -->
+    <div id="interstitial-ad-container">
+        <iframe id="interstitial-ad-iframe" 
+                src="" 
+                frameborder="0"
+                scrolling="no"></iframe>
+        <div id="ad-timer">Ad will close in <span id="countdown">5</span> seconds</div>
+        <button id="ad-skip-btn">Skip Ad</button>
+    </div>
+    
+    <!-- Game container -->
+    <div class="gm4html5_div_class" id="gm4html5_div_id">
+        <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" 
+             alt="Loading" style="display:none;" />
+        <canvas id="canvas" width="853" height="480"></canvas>
+    </div>
+
+    <!-- SDK stub with iframe ad integration -->
+    <script>
+        console.log("Pre-loading SDK stubs with iframe ads");
+        
+        // Ad management
+        let adTimer = null;
+        let adCallback = null;
+        
+        function showInterstitialAd(callback) {
+            console.log("Showing interstitial ad");
+            
+            const container = document.getElementById('interstitial-ad-container');
+            const iframe = document.getElementById('interstitial-ad-iframe');
+            const skipBtn = document.getElementById('ad-skip-btn');
+            const timerDiv = document.getElementById('ad-timer');
+            const countdownSpan = document.getElementById('countdown');
+            
+            // Load ad iframe
+            iframe.src = 'https://burritoedition.com/src/p/adlong.html';
+            
+            // Show container
+            container.classList.add('active');
+            
+            // Pause game audio if available
+            if (window.Audio_PauseAll) window.Audio_PauseAll();
+            
+            // Countdown timer
+            let countdown = 5;
+            countdownSpan.textContent = countdown;
+            skipBtn.classList.remove('active');
+            
+            adTimer = setInterval(function() {
+                countdown--;
+                countdownSpan.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(adTimer);
+                    skipBtn.classList.add('active');
+                }
+            }, 1000);
+            
+            // Skip button handler
+            skipBtn.onclick = function() {
+                hideInterstitialAd();
+                if (callback) callback();
+            };
+            
+            // Store callback for later
+            adCallback = callback;
+        }
+        
+        function hideInterstitialAd() {
+            console.log("Hiding interstitial ad");
+            
+            const container = document.getElementById('interstitial-ad-container');
+            const iframe = document.getElementById('interstitial-ad-iframe');
+            const skipBtn = document.getElementById('ad-skip-btn');
+            
+            // Hide container
+            container.classList.remove('active');
+            skipBtn.classList.remove('active');
+            
+            // Clear iframe
+            iframe.src = '';
+            
+            // Clear timer
+            if (adTimer) {
+                clearInterval(adTimer);
+                adTimer = null;
+            }
+            
+            // Resume game audio
+            if (window.Audio_ResumeAll) window.Audio_ResumeAll();
+        }
+        
+        // Poki SDK stub
+        window.PokiSDK = {
+            init: function() { 
+                console.log("PokiSDK.init() stub");
+                return Promise.resolve(); 
+            },
+            
+            gameLoadingStart: function() {
+                console.log("Game loading started");
+            },
+            
+            gameLoadingFinished: function() {
+                console.log("Game loading finished");
+            },
+            
+            gameLoadingProgress: function(p) {},
+            
+            gameplayStart: function() {
+                console.log("Gameplay started");
+            },
+            
+            gameplayStop: function() {
+                console.log("Gameplay stopped");
+            },
+            
+            happyTime: function(m) {
+                console.log("Happy time triggered");
+            },
+            
+            // Commercial break - show interstitial ad
+            commercialBreak: function() {
+                console.log("Commercial break requested");
+                return new Promise(function(resolve) {
+                    showInterstitialAd(function() {
+                        console.log("Commercial break finished");
+                        resolve();
+                    });
+                });
+            },
+            
+            // Rewarded break - show ad and grant reward
+            rewardedBreak: function() {
+                console.log("Rewarded break requested");
+                return new Promise(function(resolve) {
+                    showInterstitialAd(function() {
+                        console.log("Rewarded ad finished - granting reward");
+                        resolve(true); // true = grant reward
+                    });
+                });
+            },
+            
+            getURLParam: function(p) {
+                const match = RegExp('[?&]' + p + '=([^&]*)').exec(window.location.search);
+                return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '';
+            },
+            
+            customEvent: function() {},
+            captureError: function() {},
+            setDebug: function() {},
+            logError: function() {}
+        };
+        
+        // CrazyGames SDK stub
+        window.CrazyGames = {
+            CrazySDK: {
+                getInstance: function() {
+                    if (!this._instance) {
+                        this._instance = {
+                            init: function() {
+                                console.log("CrazySDK.init() stub");
+                            },
+                            gameplayStart: function() {},
+                            gameplayStop: function() {},
+                            happytime: function() {},
+                            requestAd: function(type) {
+                                console.log("CrazySDK.requestAd() stub - type:", type);
+                                showInterstitialAd(function() {
+                                    if (window.adFinished) window.adFinished();
+                                });
+                            },
+                            inviteLink: function(params) {
+                                return window.location.href;
+                            },
+                            requestBanner: function(params) {},
+                            requestResponsiveBanner: function(params) {},
+                            clearBanner: function(id) {},
+                            clearAllBanners: function() {},
+                            sdkGameLoadingStart: function() {},
+                            sdkGameLoadingStop: function() {},
+                            addEventListener: function(event, callback) {
+                                if (!this._listeners) this._listeners = {};
+                                if (!this._listeners[event]) this._listeners[event] = [];
+                                this._listeners[event].push(callback);
+                                
+                                // Trigger initialization
+                                if (event === 'initialized') {
+                                    setTimeout(function() {
+                                        callback({
+                                            userInfo: {
+                                                countryCode: "US",
+                                                browser: { name: "Chrome", version: "120.0" },
+                                                os: { name: "Windows", version: "10" },
+                                                device: { type: "desktop" }
+                                            }
+                                        });
+                                    }, 10);
+                                }
+                            },
+                            removeEventListener: function(event, callback) {},
+                            _listeners: {}
+                        };
+                    }
+                    return this._instance;
+                }
+            }
+        };
+        
+        window.PokiSDK_OK = false;
+        window.PokiSDK_loadState = 0;
+        
+        console.log("SDK stubs with iframe ads ready");
+    </script>
+
+    <!-- Game engine -->
+    <script type="text/javascript" src="html5game/RetroBowl.js"></script>
+    
+    <!-- Initialize game -->
+    <script>
+        window.onload = GameMaker_Init;
+    </script>
+</body>
+</html>
