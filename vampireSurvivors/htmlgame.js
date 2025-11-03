@@ -1,1 +1,12 @@
-(()=>{var o,i,l,a,e,d,c,h,n,t;t=(a=(e=location.ancestorOrigins)!=null?e[0]:void 0)!=null?a:document.referrer;i=t!=null&&(d=t.match(/\/\/([^\/]+)/))!=null?d[1]:void 0;n=(c=window.location.href)!=null&&(h=c.match(/\/html\/(\d+)/))!=null?h[1]:void 0;l=i&&!(i==="itch.io"||i.match(/\.itch\.io$/)||i.match(/\.itch\.zone$/))?!0:void 0;navigator.sendBeacon!=null&&(o=new FormData,o.append("domain",i||"unknown-domain"),n&&o.append("upload_id",n),l&&o.append("hotlink","1"),navigator.sendBeacon("https://itch.io/html-callback",o));l&&(n?window.location="https://itch.io/embed-hotlink/"+n:window.location="https://itch.io/embed-hotlink");})();
+(() => {
+  var t = (location.ancestorOrigins != null ? location.ancestorOrigins[0] : null) || document.referrer;
+  var domain = t != null && t.match(/\/\/([^\/]+)/) != null ? t.match(/\/\/([^\/]+)/)[1] : "unknown-domain";
+  var url = window.location.href;
+  var uploadId = url != null && url.match(/\/html\/(\d+)/) != null ? url.match(/\/html\/(\d+)/)[1] : null;
+  var o = new FormData();
+  o.append("domain", domain);
+  if (uploadId) o.append("upload_id", uploadId);
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon("https://itch.io/html-callback", o);
+  }
+})();
