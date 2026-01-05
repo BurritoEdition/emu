@@ -1,5 +1,5 @@
 
-EJS_AdUrl = 'https://burritoedition.com/src/p/ad.html'
+EJS_AdUrl = 'https://burritoedition.com/ad/'
 
 
 var VERSION = '0.4.26'
