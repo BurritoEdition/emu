@@ -29,28 +29,33 @@ scriptTag.parentNode.insertBefore(emu_main, scriptTag);
 function EJS_openAdPopup() {
   if (typeof EJS_AdUrl !== 'string') return;
 
-  var w = 400;
-  var h = 600;
-  var left = (window.screen.width - w) / 2;
-  var top  = (window.screen.height - h) / 2;
-  var features = [
-    'toolbar=0',
-    'location=0',
-    'status=0',
-    'menubar=0',
-    'scrollbars=1',
-    'resizable=1',
-    'width=' + w,
-    'height=' + h,
-    'left=' + left,
-    'top=' + top
-  ].join(',');
+  const useNewTab = true;
 
-  var win = window.open(EJS_AdUrl, 'EJS_AD_POPUP', features);
-  if (win) {
-    try {
-      win.location.href = EJS_AdUrl;
-    } catch (e) {}
+  if (useNewTab) {
+    window.open(EJS_AdUrl, '_blank', 'noopener');
+  } else {
+
+    const w = 400;
+    const h = 600;
+    const left = (window.screen.width - w) / 2;
+    const top  = (window.screen.height - h) / 2;
+    const features = [
+      'toolbar=0',
+      'location=0',
+      'status=0',
+      'menubar=0',
+      'scrollbars=1',
+      'resizable=1',
+      'width=' + w,
+      'height=' + h,
+      'left=' + left,
+      'top=' + top
+    ].join(',');
+
+    const win = window.open(EJS_AdUrl, 'EJS_AD_POPUP', features);
+    if (win) {
+      try { win.location.href = EJS_AdUrl; } catch (e) {}
+    }
   }
 }
 
