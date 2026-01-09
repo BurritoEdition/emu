@@ -31,7 +31,7 @@ function EJS_openAdPopup() {
 
   var w = 400;
   var h = 600;
-  var left = (window.screen.width  - w) / 2;
+  var left = (window.screen.width - w) / 2;
   var top  = (window.screen.height - h) / 2;
   var features = [
     'toolbar=0',
@@ -46,7 +46,12 @@ function EJS_openAdPopup() {
     'top=' + top
   ].join(',');
 
-  window.open(EJS_AdUrl, 'EJS_AD_POPUP', features);
+  var win = window.open(EJS_AdUrl, 'EJS_AD_POPUP', features);
+  if (win) {
+    try {
+      win.location.href = EJS_AdUrl;
+    } catch (e) {}
+  }
 }
 
 emu_main.onload = function () {
@@ -71,7 +76,7 @@ emu_main.onload = function () {
     typeof EJS_gameID         !== 'undefined' && (config.gameId         = EJS_gameID);
     typeof EJS_gameParentUrl  !== 'undefined' && (config.gameParentUrl  = EJS_gameParentUrl);
     typeof EJS_gamePatchUrl   !== 'undefined' && (config.gamePatchUrl   = EJS_gamePatchUrl);
-    typeof EJS_AdUrl          !== 'undefined' && (config.adUrl          = EJS_AdUrl);
+    typeof EJS_AdUrl          !== 'undefined' && (config.adUrla         = EJS_AdUrl);
     typeof EJS_paths          !== 'undefined' && (config.paths          = EJS_paths);
     typeof EJS_netplayUrl     !== 'undefined' && (config.netplayUrl     = EJS_netplayUrl);
     typeof EJS_startOnLoaded  !== 'undefined' && (config.startOnLoad    = EJS_startOnLoaded);
