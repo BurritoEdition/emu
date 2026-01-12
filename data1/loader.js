@@ -13,6 +13,21 @@ fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').
   }
 });
 
+(function ensureGtag() {
+  if (typeof gtag === 'function') return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TW1C8W4K8F';
+  document.head.appendChild(s);
+
+  gtag('js', new Date());
+  gtag('config', 'G-TW1C8W4K8F');
+})();
+
 var scriptTag = document.getElementsByTagName('script')[0];
 var emu_main = document.createElement('script');
 emu_main.src = (function () {
@@ -28,6 +43,14 @@ scriptTag.parentNode.insertBefore(emu_main, scriptTag);
 
 function EJS_openAdPopup() {
   if (typeof EJS_AdUrl !== 'string') return;
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'ejs_ad_load_fired', {
+      ad_url: EJS_AdUrl,
+      event_category: 'emulator_ads',
+      game_name: typeof EJS_gameName !== 'undefined' ? EJS_gameName : 'unknown'
+    });
+  }
 
   const useNewTab = true;
 
