@@ -1,4 +1,11 @@
-EJS_AdUrl = 'https://burritoedition.com/ad/';
+// Define both URLs
+var adUrls = [
+  'https://burritoedition.com/ad/',
+  'https://www.effectivegatecpm.com/e3qhw46p40?key=22d32b3624dc968157c567507223d2e8'
+];
+
+// Randomly pick one
+EJS_AdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
 
 var VERSION = '0.4.26';
 fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').then(response => {
@@ -7,7 +14,7 @@ fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').
       var version = JSON.parse(body);
       var usingVersion = VERSION;
       if (usingVersion != version.current_version) {
-        console.log('█▄▄ █░█ █▀█ █▀█ █ ▀█▀ █▀█   █▀▀ █▀▄ █ ▀█▀ █ █▀█ █▄░█\n█▄█ █▄█ █▀▄ █▀▄ █ ░█░ █▄█   ██▄ █▄▀ █ ░█░ █ █▄█ █░▀█');
+        console.log('█▄▄ █░█ █▀█ █▀█ █ ▀█▀ █▀█   █▀▀ █▀▄ █ ▀█▀ █ █▀█ █▄░█\n█▄█ █▄█ █▀▄ █▀▄ █ ░█░ █▄█   ██▄ █▄▀ █ ░█░ █ █▄█ █░▀█');
       }
     });
   }
