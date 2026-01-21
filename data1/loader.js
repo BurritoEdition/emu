@@ -1,7 +1,7 @@
 // Define both URLs
 var adUrls = [
   'https://burritoedition.com/ad/',
-  'https://www.effectivegatecpm.com/e3qhw46p40?key=22d32b3624dc968157c567507223d2e8'
+  'https://burritoedition.com/ad/'
 ];
 
 // Randomly pick one
