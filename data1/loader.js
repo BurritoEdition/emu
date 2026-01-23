@@ -1,7 +1,11 @@
 // Define both URLs
 var adUrls = [
-  'https://burritoedition.com/ad/',
-  'https://burritoedition.com/ad/'
+  'https://burritoedition.com/hubs/best-unblocked-games/',
+  'https://burritoedition.com/hubs/html-games-unblocked/',
+  'https://burritoedition.com/hubs/free-online-games/',
+  'https://burritoedition.com/hubs/kbh-games/',
+  'https://burritoedition.com/hubs/browser-flash-games/',
+  'https://burritoedition.com/hubs/unblocked-games/'
 ];
 
 // Randomly pick one
