@@ -106,12 +106,6 @@
     </style>
 </head>
 <body>
-    <!-- Banner ad at bottom (always visible) -->
-    <iframe id="banner-ad-iframe" 
-            src="https://burritoedition.com/src/p/adlong/1along.html" 
-            frameborder="0"
-            scrolling="no"></iframe>
-    
     <!-- Interstitial ad overlay (shows during commercial breaks) -->
     <div id="interstitial-ad-container">
         <iframe id="interstitial-ad-iframe" 
@@ -147,7 +141,7 @@
             const countdownSpan = document.getElementById('countdown');
             
             // Load ad iframe
-            iframe.src = 'https://burritoedition.com/src/p/adlong.html';
+            iframe.src = null;
             
             // Show container
             container.classList.add('active');
