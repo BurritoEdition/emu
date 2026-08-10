@@ -11,7 +11,8 @@ var adUrls = [
 
 // Randomly pick one
 EJS_AdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-// EJS_AdUrl2 = "https://burritoedition.com/ad/"
+
+EJS_AdUrl2 = "https://burritoedition.com/ad2/"
 
 var VERSION = '0.4.26';
 fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').then(response => {
@@ -117,7 +118,7 @@ emu_main.onload = function () {
     typeof EJS_gameID         !== 'undefined' && (config.gameId         = EJS_gameID);
     typeof EJS_gameParentUrl  !== 'undefined' && (config.gameParentUrl  = EJS_gameParentUrl);
     typeof EJS_gamePatchUrl   !== 'undefined' && (config.gamePatchUrl   = EJS_gamePatchUrl);
-    typeof EJS_AdUrl          !== 'undefined' && (config.adUrl         = EJS_AdUrl);
+    typeof EJS_AdUrl          !== 'undefined' && (config.adUrl         = EJS_AdUrl2);
     typeof EJS_paths          !== 'undefined' && (config.paths          = EJS_paths);
     typeof EJS_netplayUrl     !== 'undefined' && (config.netplayUrl     = EJS_netplayUrl);
     typeof EJS_startOnLoaded  !== 'undefined' && (config.startOnLoad    = EJS_startOnLoaded);
