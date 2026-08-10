@@ -5,7 +5,8 @@ var adUrls = [
   'https://burritoedition.com/hubs/free-online-games/',
   'https://burritoedition.com/hubs/kbh-games/',
   'https://burritoedition.com/hubs/browser-flash-games/',
-  'https://burritoedition.com/hubs/unblocked-games/'
+  'https://burritoedition.com/hubs/unblocked-games/',
+  'https://burritoedition.com/ad/'
 ];
 
 // Randomly pick one
@@ -116,7 +117,7 @@ emu_main.onload = function () {
     typeof EJS_gameID         !== 'undefined' && (config.gameId         = EJS_gameID);
     typeof EJS_gameParentUrl  !== 'undefined' && (config.gameParentUrl  = EJS_gameParentUrl);
     typeof EJS_gamePatchUrl   !== 'undefined' && (config.gamePatchUrl   = EJS_gamePatchUrl);
-    typeof EJS_AdUrl          !== 'undefined' && (config.adUrl         = EJS_AdUrl2);
+    typeof EJS_AdUrl          !== 'undefined' && (config.adUrl         = EJS_AdUrl);
     typeof EJS_paths          !== 'undefined' && (config.paths          = EJS_paths);
     typeof EJS_netplayUrl     !== 'undefined' && (config.netplayUrl     = EJS_netplayUrl);
     typeof EJS_startOnLoaded  !== 'undefined' && (config.startOnLoad    = EJS_startOnLoaded);
