@@ -12,7 +12,7 @@ var adUrls = [
 // Randomly pick one
 EJS_AdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
 
-EJS_AdUrl2 = "https://burritoedition.com/ad2/"
+EJS_AdUrl2 = "https://burritoedition.com/"
 
 var VERSION = '0.4.26';
 fetch('https://raw.githack.com/ethanaobrien/emulatorjs/main/data/version.json').then(response => {
